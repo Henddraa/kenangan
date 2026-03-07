@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffdde1 0%, #ee9ca7 100%);
+}
+/* Animasi Latar Belakang - Bubbles */
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in;
+}
+.bubble:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-duration: 8s;
+}
+.bubble:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+.bubble:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    left: 35%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+}
+.bubble:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+.bubble:nth-child(5) {
+    width: 45px;
+    height: 45px;
+    left: 65%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+.bubble:nth-child(6) {
+    width: 35px;
+    height: 35px;
+    left: 80%;
+    animation-duration: 13s;
+    animation-delay: 2s;
+}
+.bubble:nth-child(7) {
+    width: 40px;
+    height: 40px;
+    left: 90%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+@keyframes rise {
+    0% {
+        bottom: -100px;
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100px);
+    }
+    100% {
+        bottom: 1080px;
+        transform: translateX(-200px);
+    }
+}
+
+.login-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+h2 {
+    color: #b13e5c;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+p {
+    color: #7f4a5c;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #fbc1cb;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.7);
+    text-align: center;
+    letter-spacing: 4px; /* untuk efek PIN */
+}
+input:focus {
+    border-color: #ff8a9f;
+    box-shadow: 0 0 0 4px rgba(255,138,159,0.2);
+}
+button {
+    background: #ff8a9f;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 8px 15px rgba(255,138,159,0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+button:hover {
+    background: #ff6f8a;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 20px rgba(255,138,159,0.4);
+}
+#errorMessage {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: 90%;
+    color: #c53030;
+    font-size: 14px;
+    display: none;
+    background: #ffe6e6;
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(197, 48, 48, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    z-index: 2;
+}
+
+#errorMessage::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: #ffe6e6;
+}
+
+.heart {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: beat 1.2s infinite;
+}
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.hint {
+    font-size: 13px;
+    color: #a75c6e;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.5);
+    padding: 8px 15px;
+    border-radius: 50px;
+    display: inline-block;
+}
