@@ -1,0 +1,50 @@
+
+* { cursor: none !important; }
+
+#cur-core {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 6px 2px #ff4da6, 0 0 18px 5px rgba(255,77,166,.45);
+  transition: box-shadow .2s, transform .2s;
+  will-change: left, top;
+}
+
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99990;
+  transform: translate(-50%,-50%);
+  animation: sp-fade var(--life) ease-out forwards;
+}
+@keyframes sp-fade {
+  0%   { opacity: .95; transform: translate(-50%,-50%) scale(1)   rotate(var(--r0)); }
+  100% { opacity: 0;   transform: translate(-50%,-50%) scale(.05) rotate(var(--r1)); }
+}
+
+.love-center {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99995;
+  animation: lv-pop .62s cubic-bezier(.18,.67,.32,1.48) forwards;
+}
+@keyframes lv-pop {
+  0%   { transform: translate(-50%,-50%) scale(0);    opacity: 1; }
+  55%  { transform: translate(-50%,-50%) scale(1.25); opacity: 1; }
+  100% { transform: translate(-50%,-50%) scale(1.8);  opacity: 0; }
+}
+
+.love-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99994;
+  animation: lv-fly var(--dur) ease-out var(--delay) both;
+}
+@keyframes lv-fly {
+  0%   { opacity:1; transform:translate(-50%,-50%) translate(0,0)                     scale(1); }
+  100% { opacity:0; transform:translate(-50%,-50%) translate(var(--tx),var(--ty)) scale(.05); }
+}

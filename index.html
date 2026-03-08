@@ -32,14 +32,14 @@
     </div>
 
     <script>
-        const PIN_VALID = ["290608", "101108"]; 
+        const PIN_VALID = ["290608", "101108"];
 
         function cekPIN() {
             const input = document.getElementById('pinInput').value.trim();
             const errorDiv = document.getElementById('errorMessage');
 
             if (PIN_VALID.includes(input)) {
-                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('aksesLove', 'true');
                 window.location.href = 'love.html';
             } else {
                 errorDiv.style.display = 'block';
@@ -49,9 +49,8 @@
         }
 
         window.onload = function() {
-            if (sessionStorage.getItem('isLoggedIn') === 'true') {
-                window.location.href = 'love.html';
-            }
+            sessionStorage.removeItem('aksesLove');
+            document.getElementById('pinInput').focus();
         };
 
         document.getElementById('pinInput').addEventListener('keypress', function(e) {
@@ -60,24 +59,21 @@
             }
         });
 
-        // Batasi input hanya angka
         document.getElementById('pinInput').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);
         });
 
-        // Handle musik autoplay after DOM siap
         function initMusic() {
             const audio = document.querySelector('audio');
-            if (!audio) return; // safety
+            if (!audio) return;
 
             function playMusic() {
                 audio.play().catch(e => {
-                    console.log('Autoplay diblokir oleh browser, musik akan diputar saat interaksi pertama');
+                    console.log('Autoplay diblokir oleh browser');
                 });
             }
 
             playMusic();
-            // Jika autoplay gagal, putar saat klik pertama
             document.addEventListener('click', () => {
                 audio.play();
             }, { once: true });
