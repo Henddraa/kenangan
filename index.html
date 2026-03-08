@@ -40,7 +40,7 @@
 
             if (PIN_VALID.includes(input)) {
                 sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = 'home.html';
+                window.location.href = 'love.html';
             } else {
                 errorDiv.style.display = 'block';
                 document.getElementById('pinInput').value = '';
@@ -50,7 +50,7 @@
 
         window.onload = function() {
             if (sessionStorage.getItem('isLoggedIn') === 'true') {
-                window.location.href = 'home.html';
+                window.location.href = 'love.html';
             }
         };
 
